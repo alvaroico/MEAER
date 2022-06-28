@@ -1,8 +1,9 @@
 import { Request, Response, NextFunction } from "express";
 import { postPass } from "../interfaces/senhaPass";
-import { caracterLen } from "../tools/caracteres";
+import { caracterLen } from "../tools/caracterLen";
 import { caracterEspecial } from "../tools/caracterEspecial";
-import { digitosExiste } from "../tools/digito";
+import { caracteresVazio } from "../tools/caracteresVazio";
+import { digitosExiste } from "../tools/digitoExiste";
 import { stringMaiuscula } from "../tools/stringMaiuscula";
 import { stringMinuscula } from "../tools/stringMinuscula";
 
@@ -19,6 +20,12 @@ const Validar = async (
       };
 
   const { senha } = request.body as unknown as postPass;
+
+  // Existe caracteres vazios
+  if (caracteresVazio(senha) === false) {
+    response.status(401).send(`Existe caracteres vazios.`);
+    return;
+  }  
 
   // Verifica se existe ao menos 1 dígito.
   if (digitosExiste(senha) === false) {
