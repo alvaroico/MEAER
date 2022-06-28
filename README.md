@@ -1,71 +1,56 @@
-# Descrição
+Desafio Técnico MEAER.
 
-Considere uma senha sendo válida quando a mesma possuir as seguintes definições:
+# Procedimentos
 
-- Nove ou mais caracteres
-- Ao menos 1 dígito
-- Ao menos 1 letra minúscula
-- Ao menos 1 letra maiúscula
-- Ao menos 1 caractere especial
-  - Considere como especial os seguintes caracteres: !@#$%^&*()-+
-- Não possuir caracteres repetidos dentro do conjunto
+Para iniciar o processo é necessário o Docker e Docker-Compose e executar o comando
 
-Exemplo:  
-
-```c#
-IsValid("") // false  
-IsValid("aa") // false  
-IsValid("ab") // false  
-IsValid("AAAbbbCc") // false  
-IsValid("AbTp9!foo") // false  
-IsValid("AbTp9!foA") // false
-IsValid("AbTp9 fok") // false
-IsValid("AbTp9!fok") // true
+```
+npm run prod
 ```
 
-> **_Nota:_**  Espaços em branco não devem ser considerados como caracteres válidos.
+![npm run prod](/anexos/prod.gif)
 
-## Problema
+Para Executar localmente instale as dependências com NPM
 
-Construa uma aplicação que exponha uma api web que valide se uma senha é válida.
+```
+npm i
+```
 
-Input: Uma senha (string).  
-Output: Um boolean indicando se a senha é válida.
+![npm run prod](/anexos/npmi.gif)
 
-Embora nossas aplicações sejam escritas em Kotlin e C# (.net core), você não precisa escrever sua solução usando elas. Use a linguagem de programação que considera ter mais conhecimento.
+Para executar teste automatizado com o Jest executar o comando
 
-## Pontos que daremos maior atenção
+```
+npm run teste
+```
 
-- Testes de unidade / integração
-- Abstração, acoplamento, extensibilidade e coesão
-- Design de API
-- Clean Code
-- SOLID
-- Documentação da solução no *README* 
+![npm run prod](/anexos/teste.gif)
 
-## Pontos que não iremos avaliar
+Para Executar o codigo como DEV execute o comando
 
-- docker file
-- scripts ci/cd
-- coleções do postman ou ferramentas para execução
+```
+npm run dev
+```
 
-### Sobre a documentação
+![npm run prod](/anexos/dev.gif)
 
-Nesta etapa do processo seletivo queremos entender as decisões por trás do código, portanto é fundamental que o *README* tenha algumas informações referentes a sua solução.
+Para efetuar o Build do Typescript execute o comando NPM criando a pasta build na raiz do projeto em Javascript
 
-Algumas dicas do que esperamos ver são:
+```
+npm run build
+```
 
-- Instruções básicas de como executar o projeto;
-- Detalhes sobre a sua solução, gostariamos de saber qual foi seu racional nas decisões;
-- Caso algo não esteja claro e você precisou assumir alguma premissa, quais foram e o que te motivou a tomar essas decisões.
+![npm run prod](/anexos/build.gif)
 
-## Como esperamos receber sua solução
+Para executar o projeto Build da pasta build na raiz do projeto execute o comando
 
-Esta etapa é eliminatória, e por isso esperamos que o código reflita essa importância.
+```
+npm run start
+```
 
-Se tiver algum imprevisto, dúvida ou problema, por favor entre em contato com a gente, estamos aqui para ajudar.
+![npm run prod](/anexos/start.gif)
 
-Nos envie o link de um repo público com a sua solução.
+Existe um Front-End em Swagger
 
+http://localhost:8822/api-docs/
 
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjcmlhY2FvIjoxNjU2NDI0ODQyODYwLCJjbGllbnRlIjoibWVhZXIiLCJleHBpcmFjYW8iOjE2OTE2MjYxMjkwMDB9.hvrNVhzj3ZY-X7pfYi0uAOq9M0e7m2011U13JzJv4j8

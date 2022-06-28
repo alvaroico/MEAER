@@ -1,3 +1,3 @@
 export const caracteresVazio = (senha: string) => {
-  return !/[/\s+/g]/.test(senha);
+  return !/[/\s+]/.test(senha);
 };
