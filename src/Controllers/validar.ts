@@ -7,20 +7,19 @@ const Validar = async (
   response: Response,
   next: NextFunction
 ) => {
-  request.body?.senha
-    ? request.body.senha
-    : () => {
-        response.status(400).send({
-          mensagem: "Senha não informado.",
-          pass: false,
-        });
-        return;
-      };
 
-  const { senha } = request.body as unknown as postPass;
+  if (!request.body?.senha || typeof request.body.senha !== "string") {
+    response.status(400).send({
+      mensagem: "Senha não informado.",
+      pass: false,
+    });
+    return;
+  }
+
+  const { senha } = request.body as postPass;
 
   const minimoCaracter = parseInt(process.env.minimoCaracter || "9");
-  
+
   const { statusCode, mensagem, pass } = new ValidadorSenha(
     senha,
     minimoCaracter
