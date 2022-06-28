@@ -88,6 +88,7 @@
             "schema": {
               "type": "object",
               "properties": {
+                "mensagem": { "type": "string" },
                 "pass": {
                   "type": "boolean"
                 }
@@ -95,10 +96,21 @@
             }
           },
           "400": {
-            "description": "Senha não informado. | Senha não atendo o minimo carácter."
+            "description": "Ao menos 1 dígito. | Senha não informado. | Senha não atendo o minimo carácter 9. | Existem caracteres repetidos. | Existe caracteres vazios.",
+            "content": ["application/json"],
+            "schema": {
+              "type": "object",
+              "properties": {
+                "mensagem": { "type": "string" },
+                "pass": {
+                  "type": "boolean"
+                }
+              }
+            }
           },
           "401": {
-            "description": "Não identificado Token"
+            "description": "Não identificado Token",
+            "mensagem": false
           }
         }
       }
