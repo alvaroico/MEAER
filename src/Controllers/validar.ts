@@ -6,6 +6,7 @@ import { caracteresVazio } from "../tools/caracteresVazio";
 import { digitosExiste } from "../tools/digitoExiste";
 import { stringMaiuscula } from "../tools/stringMaiuscula";
 import { stringMinuscula } from "../tools/stringMinuscula";
+import { contDuplicadoCaracter } from "../tools/contDuplicadoCaracter";
 
 const Validar = async (
   request: Request,
@@ -61,6 +62,12 @@ const Validar = async (
     response.status(401).send(`Ao menos 1 caracter especial.`);
     return;
   }
+
+    // Verifica se existe ao menos 1 caracter Repetidos.
+    if (contDuplicadoCaracter(senha) === false) {
+      response.status(401).send(`Existem caracteres repetidos.`);
+      return;
+    }
 
   response.status(200).send(senha);
   return;
