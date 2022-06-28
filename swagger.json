@@ -95,7 +95,7 @@
             }
           },
           "400": {
-            "description": "Senha não informado."
+            "description": "Senha não informado. | Senha não atendo o minimo carácter."
           },
           "401": {
             "description": "Não identificado Token"
