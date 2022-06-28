@@ -16,7 +16,10 @@ const Validar = async (
   request.body?.senha
     ? request.body.senha
     : () => {
-        response.status(400).send("Senha não informado.");
+        response.status(400).send({
+          mensagem: "Senha não informado.",
+          pass: false,
+        });
         return;
       };
 
@@ -26,11 +29,14 @@ const Validar = async (
   if (caracteresVazio(senha) === false) {
     response.status(401).send(`Existe caracteres vazios.`);
     return;
-  }  
+  }
 
   // Verifica se existe ao menos 1 dígito.
   if (digitosExiste(senha) === false) {
-    response.status(401).send(`Ao menos 1 dígito.`);
+    response.status(401).send({
+      mensagem: `Ao menos 1 dígito.`,
+      pass: false,
+    });
     return;
   }
 
@@ -39,37 +45,53 @@ const Validar = async (
 
   // Minimo caracteres senha carregado pelo Env minimo 9
   if (caracterLen(senha, minimoCaracter) === false) {
-    response
-      .status(401)
-      .send(`Senha não atendo o minimo carácter ${minimoCaracter}.`);
+    response.status(401).send({
+      mensagem: `Senha não atendo o minimo carácter ${minimoCaracter}.`,
+      pass: false,
+    });
     return;
   }
 
   // Verifica se existe ao menos 1 letra minúscula.
   if (stringMinuscula(senha) === false) {
-    response.status(401).send(`Ao menos 1 letra minúscula.`);
+    response.status(401).send({
+      mensagem: `Ao menos 1 letra minúscula.`,
+      pass: false,
+    });
     return;
   }
 
   // Verifica se existe ao menos 1 letra Maiúscula.
   if (stringMaiuscula(senha) === false) {
-    response.status(401).send(`Ao menos 1 letra Maiúscula.`);
+    response.status(401).send({
+      mensagem: `Ao menos 1 letra Maiúscula.`,
+      pass: false,
+    });
     return;
   }
 
   // Verifica se existe ao menos 1 caracter especial.
   if (caracterEspecial(senha) === false) {
-    response.status(401).send(`Ao menos 1 caracter especial.`);
+    response.status(401).send({
+      mensagem: `Ao menos 1 caracter especial.`,
+      pass: false,
+    });
     return;
   }
 
-    // Verifica se existe ao menos 1 caracter Repetidos.
-    if (contDuplicadoCaracter(senha) === false) {
-      response.status(401).send(`Existem caracteres repetidos.`);
-      return;
-    }
+  // Verifica se existe ao menos 1 caracter Repetidos.
+  if (contDuplicadoCaracter(senha) === false) {
+    response.status(401).send({
+      mensagem: `Existem caracteres repetidos.`,
+      pass: false,
+    });
+    return;
+  }
 
-  response.status(200).send(senha);
+  response.status(200).send({
+    mensagem: `token XPTO`,
+    pass: true,
+  });
   return;
 };
 
