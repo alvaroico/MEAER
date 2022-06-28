@@ -4,7 +4,7 @@ import bodyParser from "body-parser";
 
 import homeRota from "./Routes/home";
 import senha from "./Routes/senha";
-import { JWTDecode } from "./Middleware/JWTDecode";
+import { JWTDecode } from "./guards/JWTDecode";
 
 const app = express();
 app.use(bodyParser.json());
