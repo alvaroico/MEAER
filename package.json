@@ -1,0 +1,22 @@
+{
+  "name": "meaer",
+  "version": "0.0.1",
+  "description": "Validador de senha",
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alvaroico/MEAER.git"
+  },
+  "author": "alvaroico",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alvaroico/MEAER/issues"
+  },
+  "homepage": "https://github.com/alvaroico/MEAER#readme",
+  "devDependencies": {
+    "typescript": "^4.7.4"
+  }
+}
