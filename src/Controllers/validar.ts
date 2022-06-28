@@ -1,7 +1,10 @@
 import { Request, Response, NextFunction } from "express";
 import { postPass } from "../interfaces/senhaPass";
 import { caracterLen } from "../tools/caracteres";
+import { caracterEspecial } from "../tools/caracterEspecial";
 import { digitosExiste } from "../tools/digito";
+import { stringMaiuscula } from "../tools/stringMaiuscula";
+import { stringMinuscula } from "../tools/stringMinuscula";
 
 const Validar = async (
   request: Request,
@@ -19,23 +22,36 @@ const Validar = async (
 
   // Verifica se existe ao menos 1 dígito.
   if (digitosExiste(senha) === false) {
-    response
-      .status(401)
-      .send(
-        `Ao menos 1 dígito.`
-      );
+    response.status(401).send(`Ao menos 1 dígito.`);
     return;
   }
 
+  // Variável configurável para definir o minimo caracter
+  const minimoCaracter = parseInt(process.env.minimoCaracter || "9");
+
   // Minimo caracteres senha carregado pelo Env minimo 9
-  if (
-    caracterLen(senha, parseInt(process.env.minimoCaracter || "9")) === false
-  ) {
+  if (caracterLen(senha, minimoCaracter) === false) {
     response
       .status(401)
-      .send(
-        `Senha não atendo o minimo carácter ${process.env.minimoCaracter}.`
-      );
+      .send(`Senha não atendo o minimo carácter ${minimoCaracter}.`);
+    return;
+  }
+
+  // Verifica se existe ao menos 1 letra minúscula.
+  if (stringMinuscula(senha) === false) {
+    response.status(401).send(`Ao menos 1 letra minúscula.`);
+    return;
+  }
+
+  // Verifica se existe ao menos 1 letra Maiúscula.
+  if (stringMaiuscula(senha) === false) {
+    response.status(401).send(`Ao menos 1 letra Maiúscula.`);
+    return;
+  }
+
+  // Verifica se existe ao menos 1 caracter especial.
+  if (caracterEspecial(senha) === false) {
+    response.status(401).send(`Ao menos 1 caracter especial.`);
     return;
   }
 

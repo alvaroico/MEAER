@@ -1,6 +1,6 @@
 export const caracterLen = (senha: string, minimoCaracter: number) => {
-  if (minimoCaracter != 0) {
+  if (senha.length < minimoCaracter) {
     return false;
   }
-  return senha.length <= minimoCaracter;
+  return senha.length >= minimoCaracter;
 };
