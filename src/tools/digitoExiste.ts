@@ -1,5 +1,5 @@
 export const digitosExiste = (senha: string) => {
-  if (senha.length === 0) {
+  if (senha.replace(/\s+/g, "").length === 0) {
     return false;
   }
   return true;

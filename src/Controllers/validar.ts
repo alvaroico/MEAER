@@ -7,8 +7,10 @@ const Validar = async (
   response: Response,
   next: NextFunction
 ) => {
-
-  if (!request.body?.senha || typeof request.body.senha !== "string") {
+  if (
+    (!request.body?.senha && request.body?.senha !== "") ||
+    typeof request.body.senha !== "string"
+  ) {
     response.status(400).send({
       mensagem: "Senha não informado.",
       pass: false,

@@ -44,7 +44,7 @@ describe("Super Teste de Rotas", () => {
     });
     expect(res.statusCode).toEqual(200);
   });
-  it("Rota Senha Vazio ", async () => {
+  it("Rota Senha Null ", async () => {
     const res = await supertest(appServer)
       .post("/senha/pass")
       .set("Authorization", JWTAuthorization)
@@ -56,6 +56,19 @@ describe("Super Teste de Rotas", () => {
       pass: false,
     });
     expect(res.statusCode).toEqual(400);
+  });
+  it("Rota Senha Vazio ", async () => {
+    const res = await supertest(appServer)
+      .post("/senha/pass")
+      .set("Authorization", JWTAuthorization)
+      .send({
+        senha: " ",
+      });
+    expect(res.body).toEqual({
+      mensagem: padraoMenorUmDigito,
+      pass: false,
+    });
+    expect(res.statusCode).toEqual(401);
   });
   it("Rota Senha aa ", async () => {
     const res = await supertest(appServer)
