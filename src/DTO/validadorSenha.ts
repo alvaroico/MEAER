@@ -30,13 +30,13 @@ export class ValidadorSenha {
   private ValidadorPass() {
     // Variável configurável para definir o minimo caracter
     const minimoCaracter = this.minimoCaracter;
-    // Existe caracteres vazios
-    if (caracteresVazio(this.pass) === false) {
-      this.senhaValidada.mensagem = "Existe caracteres vazios.";
-    }
     // Verifica se existe ao menos 1 dígito.
-    else if (digitosExiste(this.pass) === false) {
+    if (digitosExiste(this.pass) === false) {
       this.senhaValidada.mensagem = `Ao menos 1 dígito.`;
+    }
+    // Existe caracteres vazios
+    else if (caracteresVazio(this.pass) === false) {
+      this.senhaValidada.mensagem = "Existe caracteres vazios.";
     }
     // Minimo caracteres senha carregado pelo Env minimo 9
     else if (caracterLen(this.pass, minimoCaracter) === false) {
@@ -59,12 +59,13 @@ export class ValidadorSenha {
       this.senhaValidada.mensagem = `Existem caracteres repetidos.`;
     }
     // Criação de um JWT
-    else{
+    else {
       this.senhaValidada = {
         statusCode: 200,
-        mensagem: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjcmlhY2FvIjoxNjU2NDI0ODQyODYwLCJjbGllbnRlIjoibWVhZXIiLCJleHBpcmFjYW8iOjE2OTE2MjYxMjkwMDB9.hvrNVhzj3ZY-X7pfYi0uAOq9M0e7m2011U13JzJv4j8",
+        mensagem:
+          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjcmlhY2FvIjoxNjU2NDI0ODQyODYwLCJjbGllbnRlIjoibWVhZXIiLCJleHBpcmFjYW8iOjE2OTE2MjYxMjkwMDB9.hvrNVhzj3ZY-X7pfYi0uAOq9M0e7m2011U13JzJv4j8",
         pass: true,
-      }
+      };
     }
   }
 }
