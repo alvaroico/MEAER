@@ -36,11 +36,11 @@ export class ValidadorSenha {
     }
     // Existe caracteres vazios
     else if (caracteresVazio(this.pass) === false) {
-      this.senhaValidada.mensagem = "Existe caracteres vazios.";
+      this.senhaValidada.mensagem = "Existem caracteres vazios.";
     }
     // Minimo caracteres senha carregado pelo Env minimo 9
     else if (caracterLen(this.pass, minimoCaracter) === false) {
-      this.senhaValidada.mensagem = `Senha não atendo o minimo carácter ${minimoCaracter}.`;
+      this.senhaValidada.mensagem = `Senha não atende o mínimo de caracteres ${minimoCaracter}.`;
     }
     // Verifica se existe ao menos 1 letra minúscula.
     else if (stringMinuscula(this.pass) === false) {

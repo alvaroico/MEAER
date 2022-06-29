@@ -23,11 +23,11 @@ export const JWTDecode = (clienteRota: string) => {
           return;
         }
       } catch (error) {
-        response.status(401).send("Não identificado Token");
+        response.status(401).send("Token não identificado");
         return;
       }
     } else {
-      response.status(401).send("Não identificado Token");
+      response.status(401).send("Token não identificado");
       return;
     }
   };

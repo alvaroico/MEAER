@@ -12,7 +12,7 @@ const Validar = async (
     typeof request.body.senha !== "string"
   ) {
     response.status(400).send({
-      mensagem: "Senha não informado.",
+      mensagem: "Senha não informada.",
       pass: false,
     });
     return;

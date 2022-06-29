@@ -5,11 +5,11 @@ const appServer = require("./server");
 const JWTAuthorization = `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjcmlhY2FvIjoxNjU2NDI0ODQyODYwLCJjbGllbnRlIjoibWVhZXIiLCJleHBpcmFjYW8iOjE2OTE2MjYxMjkwMDB9.hvrNVhzj3ZY-X7pfYi0uAOq9M0e7m2011U13JzJv4j8`;
 
 const padraoMenorUmDigito = "Ao menos 1 dígito.";
-const padraoErroMinimo = "Senha não atendo o minimo carácter 9.";
+const padraoErroMinimo = "Senha não atende o mínimo de caracteres 9.";
 const padraoCaracterRepetido = "Existem caracteres repetidos.";
-const padraoCampoVazio = "Existe caracteres vazios.";
-const padraoSenhaVazia = "Senha não informado.";
-const padraoToken = "Não identificado Token";
+const padraoCampoVazio = "Existem caracteres vazios.";
+const padraoSenhaVazia = "Senha não informada.";
+const padraoToken = "Token não identificado";
 
 describe("Super Teste de Rotas", () => {
   it("Rota Home", async () => {
